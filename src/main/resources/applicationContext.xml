@@ -20,15 +20,6 @@
           class="com.github.boyarsky1997.springapp1.PopMusic">
     </bean>
     <bean id="musicPlayer"
-          class="com.github.boyarsky1997.springapp1.MusicPlayer"
-          scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean"/>
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-            </list>
-        </property>
-    </bean>
+
 
 </beans>
