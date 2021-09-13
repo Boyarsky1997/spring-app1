@@ -1,5 +1,8 @@
 package com.github.boyarsky1997.springapp1;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassicalMusic implements Music {
 
     public void doMyInit(){

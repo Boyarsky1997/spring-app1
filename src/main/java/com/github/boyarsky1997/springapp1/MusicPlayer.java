@@ -4,15 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MusicPlayer {
-    public List<Music> getMusicList() {
-        return musicList;
+    private Music music;
+
+    public Music getMusic() {
+        return music;
     }
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
-    private List<Music> musicList;
+    public MusicPlayer(Music music) {
+        this.music = music;
+    }
+
+    public void playMusic(){
+        System.out.println("Playing... "+music.getSong());
+    }
 
     private String name;
     private int volume;
@@ -37,13 +45,5 @@ public class MusicPlayer {
     public MusicPlayer() {
     }
 
-    public void setMusic(List<Music> musicList) {
-        this.musicList = musicList;
-    }
 
-    public void playMusic() {
-        for (Music music : musicList) {
-            System.out.println("Playing: " + music.getSong());
-        }
-    }
 }
