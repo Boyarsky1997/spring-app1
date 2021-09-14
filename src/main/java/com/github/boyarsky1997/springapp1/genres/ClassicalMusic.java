@@ -1,11 +1,12 @@
-package com.github.boyarsky1997.springapp1;
+package com.github.boyarsky1997.springapp1.genres;
 
+import com.github.boyarsky1997.springapp1.Music;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-@Component
+//@Component
 public class ClassicalMusic implements Music {
     @Override
     public String getSong() {

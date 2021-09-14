@@ -2,34 +2,43 @@ package com.github.boyarsky1997.springapp1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-@Component
+//@Component
 public class MusicPlayer {
-    private Music music1;
-    private Music music2;
+    private List<Music> listGenres;
 
-    @Autowired
-    public MusicPlayer(@Qualifier("classicalMusic") Music music1, @Qualifier("rockMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public MusicPlayer(List<Music> listGenres) {
+        this.listGenres = listGenres;
     }
 
-    public void playMusic(Genre genre) {
-        if (Genre.CLASSICAL.equals(genre)) {
-            System.out.println("Playing... " + music1.getSong());
-        }
-        if (Genre.ROCK.equals(genre)) {
-            System.out.println("Playing... " + music2.getSong());
-        }
+    @PostConstruct
+    public void init() {
+        System.out.println("Doing my initialization");
     }
 
-    //IoC
-    public MusicPlayer() {
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Doing my destrction");
     }
 
 
+    public void playMusic() {
+        Random random = new Random();
+        System.out.println("Playing... " + listGenres.get(random.nextInt(listGenres.size()) ).getSong());
+    }
+
+    @Override
+    public String toString() {
+        return "MusicPlayer{" +
+                "listGenres=" + listGenres +
+                '}';
+    }
 }

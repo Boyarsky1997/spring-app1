@@ -1,15 +1,14 @@
 package com.github.boyarsky1997.springapp1;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.github.boyarsky1997.springapp1.config.SpringConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic(Genre.ROCK);
-
+        musicPlayer.playMusic();
         context.close();
     }
 }
